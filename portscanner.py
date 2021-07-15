@@ -26,6 +26,7 @@ def check_ip(ip):
         return socket.gethostbyname(ip)
 
 def split_ports(ports):
+    """Split and parse the firstport and the lastport"""
     if ports != 'None':
         if DASH in ports:
             firstport = int(ports.split(DASH)[0].strip())
@@ -38,6 +39,7 @@ def split_ports(ports):
         return [1, 65535]
 
 def get_banner(sock):
+    """Get the banner of the port"""
     return sock.recv(1024) # Number of byte to receive
 
 def scan_port(ip_address, port, timeout):
